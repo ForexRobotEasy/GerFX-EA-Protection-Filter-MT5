@@ -1,0 +1,100 @@
+mql5
+//+------------------------------------------------------------------+
+//| GerFX EA Protection Filter MT5                                   |
+//|                                                                  |
+//| Developed by: Forex Robot Easy Team                              |
+//| Website: forexroboteasy.com                                      |
+//+------------------------------------------------------------------+
+
+// Global variables
+int newsFilter = 1; // 1 - Enabled, 0 - Disabled
+int crashFilter = 1; // 1 - Enabled, 0 - Disabled
+
+//+------------------------------------------------------------------+
+//| Customizable News Filter                                          |
+//+------------------------------------------------------------------+
+void NewsFilter()
+{
+    if(newsFilter == 1)
+    {
+        // Check for high-impact news events
+        if(IsHighImpactNewsEvent())
+        {
+            // Disable trading
+            DisableTrading();
+        }
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Customizable Stock Market Crash Filter                            |
+//+------------------------------------------------------------------+
+void CrashFilter()
+{
+    if(crashFilter == 1)
+    {
+        // Check for stock market crash phase
+        if(IsStockMarketCrashPhase())
+        {
+            // Reduce drawdown
+            ReduceDrawdown();
+        }
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Check if there is a high-impact news event                         |
+//+------------------------------------------------------------------+
+bool IsHighImpactNewsEvent()
+{
+    // Code to check for high-impact news events
+    // ...
+
+    // Return true if there is a high-impact news event, false otherwise
+    return false;
+}
+
+//+------------------------------------------------------------------+
+//| Disable trading during high-impact news events                     |
+//+------------------------------------------------------------------+
+void DisableTrading()
+{
+    // Code to disable trading
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Check if it is a stock market crash phase                          |
+//+------------------------------------------------------------------+
+bool IsStockMarketCrashPhase()
+{
+    // Code to check for stock market crash phase
+    // ...
+
+    // Return true if it is a stock market crash phase, false otherwise
+    return false;
+}
+
+//+------------------------------------------------------------------+
+//| Reduce drawdown during stock market crash phases                   |
+//+------------------------------------------------------------------+
+void ReduceDrawdown()
+{
+    // Code to reduce drawdown during stock market crash phases
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Expert Advisor Start function                                      |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Call the news filter function
+    NewsFilter();
+
+    // Call the stock market crash filter function
+    CrashFilter();
+
+    // Rest of the EA trading logic goes here
+    // ...
+}
